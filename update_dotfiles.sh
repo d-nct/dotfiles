@@ -11,7 +11,7 @@ DOTFILES=(
     "$HOME/.config/nvim/coc-settings.json"
 
     # "$HOME/.zshrc"
-    # "$HOME/.gitconfig"
+    "$HOME/.gitconfig"
 )
 
 mkdir -p "$BACKUP_DIR"
