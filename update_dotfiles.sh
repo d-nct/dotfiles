@@ -1,14 +1,39 @@
 #!/bin/bash
-HOJE=`date +”%d-%b-%Y”`
 
-# Atualizamos init.vim
-cp -f /home/danieln/.config/nvim/init.vim .
+BACKUP_DIR="./backup"
+DOTFILES=(
+    "$HOME/.bashrc"
+    "$HOME/.zshrc"
+    "$HOME/.gitconfig"
+    "$HOME/.tmux.conf"
+    "$HOME/.config/nvim/init.vim"
+    "$HOME/.config/nvim/init.lua"
+    "$HOME/.config/nvim/coc-settings.json"
+)
 
-# Atualizamos o .vimrc
-cp -f /home/danieln/.vimrc .
+mkdir -p "$BACKUP_DIR"
 
-# Commit
-# git add *
-# git commit -m \"$HOJE\"
-# git push -u origin main
-# TODO: commit e push automático
+# Faz o backup arquivo por arquivo
+for FILE in "${DOTFILES[@]}"; do
+    if [ -f "$FILE" ]; then
+        echo -n "Salvando $FILE... " 
+        cp "$FILE" "$BACKUP_DIR"
+        echo "Sucesso!"
+    else
+        echo "Não encontrado: $FILE..."
+    fi
+done
+
+# Commita as mudanças
+echo -n "Realizando commit... "
+cd "$BACKUP_DIR" || exit
+
+if [ ! -d ".git" ]; then
+    git init
+fi
+
+git add .
+git commit -m "Backup de dotfiles em $(date +'%Y-%m-%d %H:%M:%S')"
+
+echo "Sucesso!"
+echo "Fim do programa."
