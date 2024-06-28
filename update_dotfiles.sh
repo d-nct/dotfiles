@@ -26,7 +26,7 @@ done
 
 # Commita as mudanças
 echo -n "Realizando commit... "
-cd "$BACKUP_DIR" || exit
+# cd "$BACKUP_DIR" || exit
 
 if [ ! -d ".git" ]; then
     git init
