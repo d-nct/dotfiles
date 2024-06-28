@@ -3,12 +3,15 @@
 BACKUP_DIR="./backup"
 DOTFILES=(
     "$HOME/.bashrc"
-    "$HOME/.zshrc"
-    "$HOME/.gitconfig"
     "$HOME/.tmux.conf"
+
+    # NVIM
     "$HOME/.config/nvim/init.vim"
     "$HOME/.config/nvim/init.lua"
     "$HOME/.config/nvim/coc-settings.json"
+
+    # "$HOME/.zshrc"
+    # "$HOME/.gitconfig"
 )
 
 mkdir -p "$BACKUP_DIR"
