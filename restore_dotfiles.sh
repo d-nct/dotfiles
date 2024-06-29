@@ -6,8 +6,9 @@ DOTFILES=(
     "$HOME/.tmux.conf"
 
     # NVIM
-    "$HOME/.config/nvim/init.vim"
     "$HOME/.config/nvim/init.lua"
+    "$HOME/.config/nvim/lua/mappings.lua"
+    "$HOME/.config/nvim/lua/options.lua"
     "$HOME/.config/nvim/coc-settings.json"
 
     # "$HOME/.zshrc"
