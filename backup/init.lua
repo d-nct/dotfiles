@@ -29,7 +29,14 @@ require("lazy").setup({
   -- Meus Plugins
   { "github/copilot.vim", lazy = false },
   { 'neovim/nvim-lspconfig', lazy = false }, -- Para clangd
-  { "preservim/tagbar", lazy = false } -- Tagbar com a estrutura do arquivo
+  { "preservim/tagbar", lazy = false }, -- Tagbar com a estrutura do arquivo
+                                        -- Precisa de apt install exuberant-ctags
+  { 'hrsh7th/nvim-cmp', lazy = false},
+  { 'hrsh7th/cmp-buffer' },
+  { 'hrsh7th/cmp-path' },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'L3MON4D3/LuaSnip' },
+  { 'saadparwaiz1/cmp_luasnip' },
 }, lazy_config)
 
 -- load theme
@@ -120,5 +127,41 @@ vim.api.nvim_set_keymap('n', '<F8>', ':TagbarToggle<CR>', { noremap = true, sile
 -- Configuração do copilot
 vim.api.nvim_set_keymap('n', '<leader>cp', ':Copilot<CR>', { noremap = true, silent = true })
 
--- Configura o exuberant ctags 
-vim.g.tagbar_ctags_bin = '/usr/bin/ctags'
+-- Configuração do nvim-cmp
+-- Configuração do nvim-cmp
+local cmp = require'cmp'
+local luasnip = require'luasnip'
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+  mapping = {
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.confirm({ select = true })
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+    ['<CR>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.confirm({ select = false })
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+    ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+    ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+  },
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+    { name = 'buffer' },
+    { name = 'path' },
+  })
+})

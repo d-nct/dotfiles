@@ -1,3 +1,5 @@
 [user]
 	email = nocito@ufrj.br
 	name = Nocito
+[alias]
+	tree = log --oneline --graph --decorate --all --date=short
