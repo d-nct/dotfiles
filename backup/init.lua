@@ -26,17 +26,6 @@ require("lazy").setup({
   },
   { import = "plugins" },
 
-  -- Meus Plugins
-  { "github/copilot.vim", lazy = false },
-  { 'neovim/nvim-lspconfig', lazy = false }, -- Para clangd
-  { "preservim/tagbar", lazy = false }, -- Tagbar com a estrutura do arquivo
-                                        -- Precisa de apt install exuberant-ctags
-  { 'hrsh7th/nvim-cmp', lazy = false},
-  { 'hrsh7th/cmp-buffer' },
-  { 'hrsh7th/cmp-path' },
-  { 'hrsh7th/cmp-nvim-lsp' },
-  { 'L3MON4D3/LuaSnip' },
-  { 'saadparwaiz1/cmp_luasnip' },
 }, lazy_config)
 
 -- load theme
@@ -45,41 +34,10 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require "nvchad.autocmds"
 
+-- Carrega os mapeamentos em lua/mappings.lua
 vim.schedule(function()
   require "mappings"
 end)
-
--- Configura identação para 4
-vim.opt.tabstop    = 4    -- Número de colunas que uma tabulação representa
-vim.opt.shiftwidth = 4    -- Número de espaços usados para cada nível de indentação
-vim.opt.expandtab  = true -- Converte tabulações em espaços
-vim.opt.autoindent = true -- Mantém a indentação da linha anterior
-
--- Compartilha a área de transferência
--- Precisa instalar sudo apt install xclip
-vim.opt.clipboard = 'unnamedplus'
-
--- Mapear y para copiar para o clipboard do sistema
-vim.api.nvim_set_keymap('n', 'y', '"+y', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', 'y', '"+y', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'Y', '"+Y', { noremap = true, silent = true })
-
--- Mapear p para colar do clipboard do sistema
-vim.api.nvim_set_keymap('n', 'p', '"+p', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'P', '"+P', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', 'p', '"+p', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', 'P', '"+P', { noremap = true, silent = true })
-
--- Números relativos à linha atual
-vim.opt.number = true
-vim.opt.relativenumber = true
-
--- vim.opt.autochdir = true -- Atualiza o diretório corrente ao mudar de arquivo
-vim.opt.autoread = true -- Atualiza arquivos modificados fora do vim
-vim.opt.colorcolumn = "80" -- Cria coluna marcando o fim da linha
-
--- Mapear a tecla Esc para sair do modo terminal
-vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
 
 -- Início da configuração do clangd
 require('lspconfig').clangd.setup {
@@ -119,6 +77,7 @@ require('lspconfig').clangd.setup {
         debounce_text_changes = 150,
     }
 }
+-- Fim da configuração do clangd
 
 -- Configuração do Tagbar
 -- Mapeia a tecla F8 para abrir o Tagbar
@@ -127,8 +86,7 @@ vim.api.nvim_set_keymap('n', '<F8>', ':TagbarToggle<CR>', { noremap = true, sile
 -- Configuração do copilot
 vim.api.nvim_set_keymap('n', '<leader>cp', ':Copilot<CR>', { noremap = true, silent = true })
 
--- Configuração do nvim-cmp
--- Configuração do nvim-cmp
+-- Início da configuração do nvim-cmp
 local cmp = require'cmp'
 local luasnip = require'luasnip'
 
@@ -165,3 +123,5 @@ cmp.setup({
     { name = 'path' },
   })
 })
+-- Fim da configuração do nvim-cmp
+
