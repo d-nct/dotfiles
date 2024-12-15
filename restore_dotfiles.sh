@@ -2,7 +2,10 @@
 
 BACKUP_DIR="./backup"
 DOTFILES=(
+    # BASH
     "$HOME/.bashrc"
+
+    # TMUX
     "$HOME/.tmux.conf"
 
     # NVIM
