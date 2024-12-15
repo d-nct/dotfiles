@@ -1,5 +1,9 @@
 [user]
-	email = nocito@ufrj.br
-	name = Nocito
+	email = daniel.nocito@aeroespacial.ufrj.br
+	name = Daniel Nocito
+[core]
+	editor = nvim
 [alias]
-	tree = log --oneline --graph --decorate --all --date=short
+	tree = log --graph --oneline --decorate --all --color
+[init]
+	defaultBranch = main

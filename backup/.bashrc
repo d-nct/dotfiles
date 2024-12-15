@@ -1,4 +1,8 @@
+# Para WSL
+export SSH_AUTH_SOCK="/mnt/c/Users/Daniel Nocito/AppData/Local/ssh-agent/agent.sock"
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
+
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -137,3 +141,8 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+EDITOR='nvim'
+
+# Configurações do fzf
+alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
