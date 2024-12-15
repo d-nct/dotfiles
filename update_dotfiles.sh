@@ -41,7 +41,7 @@ for FILE in "${DOTFILES[@]}"; do
 done
 
 # Faz o backup dos diretórios
-echo "Iniciando backup dos diretórios..."
+echo "\nIniciando backup dos diretórios..."
 for DIR in "${DIRECTORIES[@]}"; do
     if [ -d "$DIR" ]; then
         DIR_NAME=$(basename "$DIR")
@@ -54,7 +54,7 @@ for DIR in "${DIRECTORIES[@]}"; do
 done
 
 # Commita as mudanças
-echo -n "Realizando commit... "
+echo -n "\nRealizando commit... "
 
 if [ ! -d ".git" ]; then
     git init
