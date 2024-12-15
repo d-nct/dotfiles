@@ -1,6 +1,8 @@
 #!/bin/bash
 
 BACKUP_DIR="./backup"
+
+# Lista de dotfiles para backup
 DOTFILES=(
     # BASH
     "$HOME/.bashrc"
@@ -8,19 +10,26 @@ DOTFILES=(
     # TMUX
     "$HOME/.tmux.conf"
 
-    # NVIM
-    "$HOME/.config/nvim/init.lua"
-    "$HOME/.config/nvim/lua/mappings.lua"
-    "$HOME/.config/nvim/lua/options.lua"
-    "$HOME/.config/nvim/coc-settings.json"
-
     # "$HOME/.zshrc"
+
+    # GIT
     "$HOME/.gitconfig"
 )
 
+# Lista de diretórios para backup
+DIRECTORIES=(
+    # NVIM
+    "$HOME/.config/nvim"
+
+    # Outros...
+    # "$HOME/..."
+)
+
+# Cria o diretório de backup, se não existir
 mkdir -p "$BACKUP_DIR"
 
-# Faz o backup arquivo por arquivo
+# Faz o backup dos arquivos individuais
+echo "Iniciando backup dos dotfiles..."
 for FILE in "${DOTFILES[@]}"; do
     if [ -f "$FILE" ]; then
         echo -n "Salvando $FILE... " 
@@ -31,16 +40,28 @@ for FILE in "${DOTFILES[@]}"; do
     fi
 done
 
+# Faz o backup dos diretórios
+echo "Iniciando backup dos diretórios..."
+for DIR in "${DIRECTORIES[@]}"; do
+    if [ -d "$DIR" ]; then
+        DIR_NAME=$(basename "$DIR")
+        echo -n "Salvando o diretório $DIR... "
+        cp -r "$DIR" "$BACKUP_DIR/$DIR_NAME"
+        echo "Sucesso!"
+    else
+        echo "Diretório não encontrado: $DIR..."
+    fi
+done
+
 # Commita as mudanças
 echo -n "Realizando commit... "
-# cd "$BACKUP_DIR" || exit
 
 if [ ! -d ".git" ]; then
     git init
 fi
 
 git add .
-git commit -m "Backup de dotfiles em $(date +'%Y-%m-%d %H:%M:%S')"
+git commit -m "Backup de dotfiles e diretórios em $(date +'%Y-%m-%d %H:%M:%S')"
 
 echo "Sucesso!"
 echo "Fim do programa."
