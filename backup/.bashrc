@@ -136,6 +136,7 @@ esac
 # <<< juliaup initialize <<<
 
 # Setup do NEOVIM
+# ---------------
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
 export NVM_DIR="$HOME/.nvm"
@@ -145,4 +146,12 @@ export NVM_DIR="$HOME/.nvm"
 EDITOR='nvim'
 
 # Configurações do fzf
-alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
+# --------------------
+alias nvimf='nvim $(fzf -m --preview="bat --color=always {}")'
+
+# Restaura sessões do TMUX
+# ------------------------
+if [ -z "$TMUX" ]; then
+    tmux new-session -d -s main
+    tmux-resurrect-restore
+fi

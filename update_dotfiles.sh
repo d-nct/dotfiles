@@ -9,6 +9,7 @@ DOTFILES=(
 
     # TMUX
     "$HOME/.tmux.conf"
+    "$HOME/.config/systemd/user/tmux.service"
 
     # "$HOME/.zshrc"
 
