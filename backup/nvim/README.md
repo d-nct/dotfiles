@@ -3,36 +3,37 @@
 ## 📦 **Resumo dos Plugins**
 
 | **Plugin**               | **Descrição**                                                                                       |
-|---------------------------|----------------------------------------------------------------------------------------------------|
-| **catppuccin**           | Tema elegante e personalizável para o Neovim.                                                      |
-| **completions**          | Configuração de autocompletar com suporte a `nvim-cmp`.                                            |
-| **gitsigns**             | Mostra informações de Git (adicionadas, modificadas, removidas) no gutter.                        |
-| **lsp-config**           | Configurações do Language Server Protocol (LSP) para autocompletar e diagnósticos em tempo real.  |
-| **neorg**                | Ferramenta para organização e anotações em Markdown/Org-mode.                                      |
-| **neo-tree**             | Gerenciador de arquivos em árvore para navegação eficiente.                                        |
-| **none-ls**              | Integração com ferramentas de linting e formatação como `null-ls`.                                 |
-| **pandoc_autorender**    | Renderização automática de arquivos Markdown com Pandoc.                                           |
-| **tagbar**               | Exibe uma barra lateral com uma lista de símbolos (funções, classes) do arquivo atual.            |
-| **telescope**            | Ferramenta de busca e navegação avançada com interface amigável.                                   |
-| **treesitter**           | Melhor destaque de sintaxe e parsing para várias linguagens.                                       |
-| **vim-obsession**        | Plugin para gerenciar sessões do Neovim com facilidade.                                            |
+|--------------------------|-----------------------------------------------------------------------------------------------------|
+| **catppuccin**           | Tema elegante e personalizável para o Neovim.                                                       |
+| **completions**          | Configuração de autocompletar com suporte a `nvim-cmp`.                                             |
+| **gitsigns**             | Mostra informações de Git (adicionadas, modificadas, removidas) no gutter.                          |
+| **lsp-config**           | Configurações do Language Server Protocol (LSP) para autocompletar e diagnósticos em tempo real.    |
+| **neorg**                | Ferramenta para organização e anotações em Markdown/Org-mode.                                       |
+| **neo-tree**             | Gerenciador de arquivos em árvore para navegação eficiente.                                         |
+| **none-ls**              | Integração com ferramentas de linting e formatação como `null-ls`.                                  |
+| **pandoc_autorender**    | Renderização automática de arquivos Markdown com Pandoc.                                            |
+| **tagbar**               | Exibe uma barra lateral com uma lista de símbolos (funções, classes) do arquivo atual.              |
+| **telescope**            | Ferramenta de busca e navegação avançada com interface amigável.                                    |
+| **treesitter**           | Melhor destaque de sintaxe e parsing para várias linguagens.                                        |
+| **vim-obsession**        | Plugin para gerenciar sessões do Neovim com facilidade.                                             |
 
 ## ⚙️ **Principais Comandos**
 
 | **Modo** | **Comando**             | **Atalho**        | **Descrição**                                               | **Personalizado?** |
-|:---------|:------------------------|:------------------|:-----------------------------------------------------------|:------------------:|
-| n        | `:NeoTreeShow`          |                   | Abre o gerenciador de arquivos **neo-tree**.               |                    |
-| n        | `:Telescope live_grep`  | `<leader>fg`      | Busca por texto dentro dos arquivos do projeto.            | X                  |
+|:---------|:------------------------|:------------------|:------------------------------------------------------------|:------------------:|
+| n        | `:NeoTreeShow`          |                   | Abre o gerenciador de arquivos **neo-tree**.                |                    |
+| n        | `:Telescope find_files` |                   | Busca rápida por arquivos no projeto atual.                 |                    |
+| n        | `:Telescope live_grep`  | `<leader>fg`      | Busca por texto dentro dos arquivos do projeto.             | X                  |
 | n        |                         | `<leader>gf`      | Chama o formatter                                           | X                  |
-| n        | `:Telescope find_files` |                   | Busca rápida por arquivos no projeto atual.                |                    |
 | n        |                         | `C-p`             | fzf files                                                   | X                  |
-| n        | `:TagbarToggle`         |                   | Abre/fecha a barra lateral com símbolos do código.         |                    |
-| n        | `:Gitsigns blame_line`  |                   | Mostra o autor da linha atual no Git.                      |                    |
-| n        | `:LspInfo`              |                   | Mostra informações dos servidores LSP em execução.         |                    |
-| n        | `:Neorg index`          |                   | Abre o índice principal do **neorg**.                      |                    |
+| n        | `:TagbarToggle`         | `C-n`             | Abre/fecha a barra lateral com símbolos do código.          | X                  |
+| n        |                         | `C-M`             | Abre/fecha diretórios na Tagbar.                            | X                  |
+| n        | `:Gitsigns blame_line`  |                   | Mostra o autor da linha atual no Git.                       |                    |
+| n        | `:LspInfo`              |                   | Mostra informações dos servidores LSP em execução.          |                    |
+| n        | `:Neorg index`          |                   | Abre o índice principal do **neorg**.                       |                    |
+| n        | `:Obsession`            | `<leader>g`       | Inicia uma nova sessão com o **vim-obsession**.             | X                  |
 | n        |                         | `gq`              | Autoident                                                   |                    |
-| n        |                         | `;`               | `:` (para executar comandos)                               | X                  |
-| n        | `:Obsession`            |                   | Inicia uma nova sessão com o **vim-obsession**.            |                    |
+| n        |                         | `;`               | `:` (para executar comandos)                                | X                  |
 | i        |                         | `jk`              | Sai do **Insert Mode**                                      | X                  |
 | t        |                         | `<ESC>`           | Sai do **Terminal Mode**                                    | X                  |
 
