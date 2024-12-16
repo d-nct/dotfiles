@@ -42,12 +42,12 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.remark_ls.setup({
-				capabilities = capabilities,
+				-- capabilities = capabilities,
 			})
 
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})                      -- shift+K mostra a doc
-			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})        -- goto definition
-			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})        -- goto referencias
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})                         -- shift+K mostra a doc
+			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})           -- goto definition
+			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})           -- goto referencias
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {}) -- actions genéricas
 		end,
 	},

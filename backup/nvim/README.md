@@ -36,6 +36,10 @@
 | n        |                         | `;`               | `:` (para executar comandos)                                | X                  |
 | i        |                         | `jk`              | Sai do **Insert Mode**                                      | X                  |
 | t        |                         | `<ESC>`           | Sai do **Terminal Mode**                                    | X                  |
+| n        |                         | `K`               | LSP: Mostra a documentação.                                 | X                  |
+| n        |                         | `<leader>gd`      | LSP: goto definição.                                        | X                  |
+| n        |                         | `<leader>gr`      | LSP: goto referencias.                                      | X                  |
+| n, v     |                         | `<leader>ca`      | LSP: Ações genéricas.                                       | X                  |
 
 ## 🛠️ **Configurações Importantes**
 

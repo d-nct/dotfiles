@@ -32,7 +32,7 @@ local o = vim.opt
 vim.cmd([[
     augroup Indentation
         autocmd!
-        autocmd FileType markdown, lua setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
+        autocmd FileType lua setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
         autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 noexpandtab
         autocmd FileType javascript,typescript setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
         autocmd FileType c,cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
