@@ -20,6 +20,19 @@ Basta executar
 ```
 
 ---
+# Configurações a Serem Feitas
+## TMUX
+
+* Instalação: `sudo apt install tmux`
+
+Permanencia das sessões após desligar o PC:
+```sh
+systemctl --user enable tmux
+systemctl --user start tmux
+```
+
+---
 # TODO
 - [x] Script para restaurar dotfiles, podendo escolher quais devem ser sobrescritas.
+- [x] Suporte a diretórios.
 - [ ] No script de restauração, mostrar uma tela usando o `diff` entre a versão atual do arquivo e a versão do backup.
