@@ -151,7 +151,7 @@ alias nvimf='nvim $(fzf -m --preview="bat --color=always {}")'
 
 # Restaura sessões do TMUX
 # ------------------------
-if [ -z "$TMUX" ]; then
-    tmux new-session -d -s main
-    tmux-resurrect-restore
-fi
+# if [ -z "$TMUX" ]; then
+#     tmux new-session -d -s main
+#     tmux-resurrect-restore
+# fi

@@ -1,8 +1,5 @@
 -- Clássicos
 vim.g.mapleader = " "
--- vim.cmd("set tabstop=2")
--- vim.cmd("set softtabstop=2")
--- vim.cmd("set shiftwidth=2")
 
 local map = vim.keymap.set
 
@@ -31,19 +28,11 @@ vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 -- Abreviação para configurar as opções
 local o = vim.opt
 
--- Função para configurar indentação
--- local function set_indent(width)
---     vim.bo.shiftwidth = width
---     vim.bo.tabstop = width
---     vim.bo.softtabstop = width
---     vim.bo.expandtab = true
--- end
-
--- Autocommands para diferentes linguagens
+-- Identação para diferentes linguagens
 vim.cmd([[
     augroup Indentation
         autocmd!
-        autocmd FileType lua setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
+        autocmd FileType markdown, lua setlocal shiftwidth=2 tabstop=2 softtabstop=2 noexpandtab
         autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 noexpandtab
         autocmd FileType javascript,typescript setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
         autocmd FileType c,cpp setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
@@ -58,12 +47,11 @@ vim.cmd([[
 -- Compartilha a área de transferência
 o.clipboard = 'unnamedplus' -- Necessário apt install xclip
 
-
 -- Números relativos à linha atual
 o.number = true
 o.relativenumber = true
 
--- vim.opt.autochdir = true -- Atualiza o diretório corrente ao mudar de arquivo
+vim.opt.autochdir = true -- Atualiza o diretório corrente ao mudar de arquivo
 o.autoread = true -- Atualiza arquivos modificados fora do vim
 o.colorcolumn = "80" -- Cria coluna marcando o fim da linha
 
