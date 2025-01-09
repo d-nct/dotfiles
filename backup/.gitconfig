@@ -3,7 +3,11 @@
 	name = Daniel Nocito
 [core]
 	editor = nvim
+	quotepath = off
+	autocrlf = input
 [alias]
 	tree = log --graph --oneline --decorate --all --color
 [init]
 	defaultBranch = main
+[i18n]
+	commitencoding = utf-8
