@@ -12,7 +12,12 @@ DOTFILES=(
     "$HOME/.config/systemd/user/tmux.service"
 
     # "$HOME/.zshrc"
+
+    # GIT
     "$HOME/.gitconfig"
+
+		# VIM puro
+    "$HOME/.vimrc"
 )
 
 # Lista de diretórios para restaurar

@@ -20,7 +20,30 @@ Basta executar
 ```
 
 ---
-# Configurações a Serem Feitas
+
+# Mapa de Arquivos Versionados
+
+```bash
+backup/
+├── .bashrc             " Conifgurações do bash
+├── .gitconfig          " Configurações do git
+├── init.vim
+├── nvim
+│   ├── init.lua
+│   ├── lazy-lock.json
+│   ├── lua
+│   ├── .luarc.json
+│   ├── nvim
+│   ├── README.md
+│   └── Session.vim
+├── .tmux.conf          " Configurações básicas do TMUX
+├── tmux.service
+└── .vimrc              " Configutações básicas do VIM puro
+```
+
+---
+
+# Configurações a Serem Feitas Após Clonar o Repositório
 ## TMUX
 
 * Instalação: `sudo apt install tmux`
@@ -31,7 +54,10 @@ systemctl --user enable tmux
 systemctl --user start tmux
 ```
 
+TODO: backup dos diretórios com os plugins!
+
 ---
+
 # TODO
 - [x] Script para restaurar dotfiles, podendo escolher quais devem ser sobrescritas.
 - [x] Suporte a diretórios.

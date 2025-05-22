@@ -15,6 +15,9 @@ DOTFILES=(
 
     # GIT
     "$HOME/.gitconfig"
+
+		# VIM puro
+    "$HOME/.vimrc"
 )
 
 # Lista de diretórios para backup
