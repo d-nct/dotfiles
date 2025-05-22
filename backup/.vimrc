@@ -14,3 +14,5 @@
 " :set autochdir	           " Atualiza o diretório atual ao mudar de arquivo
 :set clipboard=unnamedplus " Usa o clipboard do sistema
 :set colorcolumn=80        " Adiciona linha marcando o fim da linha
+
+:inoremap jk <ESC>         " Define o atalho 'jk' para sair do modo de inserção
