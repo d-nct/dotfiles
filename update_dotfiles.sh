@@ -53,7 +53,8 @@ for DIR in "${DIRECTORIES[@]}"; do
     if [ -d "$DIR" ]; then
         DIR_NAME=$(basename "$DIR")
         echo -n "Salvando o diretório $DIR... "
-        cp -r "$DIR" "$BACKUP_DIR/"
+        # cp -r "$DIR" "$BACKUP_DIR/"
+	rsync -v --exclude='.git' "$DIR" "$BACKUP_DIR/"
         echo "Sucesso!"
     else
         echo "Diretório não encontrado: $DIR..."
