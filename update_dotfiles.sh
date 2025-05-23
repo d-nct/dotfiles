@@ -40,7 +40,7 @@ echo "Iniciando backup dos dotfiles..."
 for FILE in "${DOTFILES[@]}"; do
     if [ -f "$FILE" ]; then
         echo -n "Salvando $FILE... " 
-        cp "$FILE" "$BACKUP_DIR"
+        rsync "$FILE" "$BACKUP_DIR"
         echo "Sucesso!"
     else
         echo "Não encontrado: $FILE..."
@@ -55,7 +55,7 @@ for DIR in "${DIRECTORIES[@]}"; do
         echo -n "Salvando o diretório $DIR... "
         # cp -r "$DIR" "$BACKUP_DIR/"
 	rsync --exclude='.git' "$DIR" "$BACKUP_DIR/"
-        echo "Sucesso!"
+        # echo "Sucesso!" O rsync já provê saída
     else
         echo "Diretório não encontrado: $DIR..."
     fi
