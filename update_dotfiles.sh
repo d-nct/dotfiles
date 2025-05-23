@@ -1,36 +1,7 @@
 #!/bin/bash
 
-BACKUP_DIR="./backup"
-
-# Lista de dotfiles para backup
-DOTFILES=(
-    # BASH
-    "$HOME/.bashrc"
-
-    # TMUX
-    "$HOME/.tmux.conf"
-    "$HOME/.config/systemd/user/tmux.service"
-
-    # "$HOME/.zshrc"
-
-    # GIT
-    "$HOME/.gitconfig"
-
-		# VIM puro
-    "$HOME/.vimrc"
-)
-
-# Lista de diretórios para backup
-DIRECTORIES=(
-    # NVIM
-    "$HOME/.config/nvim"
-
-    # TMUX (plugins)
-    "$HOME/.tmux"
-
-    # Outros...
-    # "$HOME/..."
-)
+# Carrega as listas de arquivos e diretórios
+source ./configs.sh
 
 # Cria o diretório de backup, se não existir
 mkdir -p "$BACKUP_DIR"
@@ -40,7 +11,7 @@ echo "Iniciando backup dos dotfiles..."
 for FILE in "${DOTFILES[@]}"; do
     if [ -f "$FILE" ]; then
         echo -n "Salvando $FILE... " 
-        rsync "$FILE" "$BACKUP_DIR"
+        rsync -a "$FILE" "$BACKUP_DIR" # -a mantém as permissões
         echo "Sucesso!"
     else
         echo "Não encontrado: $FILE..."
@@ -52,10 +23,11 @@ echo -e "\nIniciando backup dos diretórios..."
 for DIR in "${DIRECTORIES[@]}"; do
     if [ -d "$DIR" ]; then
         DIR_NAME=$(basename "$DIR")
-        echo -n "Salvando o diretório $DIR... "
-        # cp -r "$DIR" "$BACKUP_DIR/"
-	rsync --exclude='.git' "$DIR" "$BACKUP_DIR/"
-        # echo "Sucesso!" O rsync já provê saída
+	ARCHIVE="$BACKUP_DIR/${DIR_NAME}.tar.gz"
+
+        echo -n "Salvando o diretório $DIR como tarball... "
+	tar -czf "$ARCHIVE" -C "$(dirname "$DIR")" "$DIR_NAME"
+        echo "Sucesso!"
     else
         echo "Diretório não encontrado: $DIR..."
     fi
