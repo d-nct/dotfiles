@@ -20,10 +20,16 @@ DOTFILES=(
     "$HOME/.vimrc"
 )
 
-# Lista de diretórios para restaurar
+# Lista de diretórios para backup
 DIRECTORIES=(
     # NVIM
     "$HOME/.config/nvim"
+
+    # TMUX (plugins)
+    "$HOME/.tmux"
+
+    # Outros...
+    # "$HOME/..."
 )
 
 # Função para confirmar sobrescrita

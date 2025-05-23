@@ -25,6 +25,9 @@ DIRECTORIES=(
     # NVIM
     "$HOME/.config/nvim"
 
+    # TMUX (plugins)
+    "$HOME/.tmux"
+
     # Outros...
     # "$HOME/..."
 )
