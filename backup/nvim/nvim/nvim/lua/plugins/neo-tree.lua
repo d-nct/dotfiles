@@ -10,18 +10,6 @@ return {
 		},
 		config = function()
 			vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>")
-
-			-- Configuração do Neo-tree (TODO: não funciona)
-			require("neo-tree").setup({
-				filesystem = {
-					window = {
-						mappings = {
-							["<Tab>"] = "toggle_node", -- Tab para abrir/fechar diretórios
-							["o"] = "open",           -- 'o' para abrir arquivos
-						},
-					},
-				},
-			})
 		end,
 	},
 }

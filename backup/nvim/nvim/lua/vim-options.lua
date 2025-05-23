@@ -51,7 +51,7 @@ o.clipboard = 'unnamedplus' -- Necessário apt install xclip
 o.number = true
 o.relativenumber = true
 
-vim.opt.autochdir = true -- Atualiza o diretório corrente ao mudar de arquivo
+-- vim.opt.autochdir = true -- Atualiza o diretório corrente ao mudar de arquivo
 o.autoread = true -- Atualiza arquivos modificados fora do vim
 o.colorcolumn = "80" -- Cria coluna marcando o fim da linha
 

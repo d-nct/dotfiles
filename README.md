@@ -54,8 +54,6 @@ systemctl --user enable tmux
 systemctl --user start tmux
 ```
 
-TODO: backup dos diretórios com os plugins!
-
 ---
 
 # TODO
