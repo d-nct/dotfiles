@@ -46,22 +46,16 @@ for DIR in "${DIRECTORIES[@]}"; do
 		DIR_NAME=$(basename "$DIR")
 		ARCHIVE="$BACKUP_DIR/${DIR_NAME}.tar.gz"
 
-		if [ -d "$ARCHIVE" ]; then
-				if [ -d "$DIR" ]; then
-
+		if [ -f "$ARCHIVE" ]; then
 						if confirm "$DIR_NAME"; then
 
-								echo "Extraindo $ARCHIVE para $(dirname "$DIR") ..."
-								tar -xzf "$ARCHIVE" -C "$(dirname "$DIR")"
-								echo "Diretório $DIR_NAME restaurado."
+										echo "Extraindo $ARCHIVE para $(dirname "$DIR") ..."
+										tar -xzf "$ARCHIVE" -C "$(dirname "$DIR")"
+										echo "Diretório $DIR_NAME restaurado."
 
 						else
-								echo "Diretório $DIR_NAME não foi sobrescrito."
+										echo "Diretório $DIR_NAME não foi sobrescrito."
 						fi
-				else
-						cp -r "$BACKUP_DIR_PATH" "$DIR"
-						echo "Diretório $DIR_NAME restaurado."
-				fi
 		else
 				echo "Backup do diretório $DIR_NAME não encontrado em $BACKUP_DIR..."
 		fi
