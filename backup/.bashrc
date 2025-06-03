@@ -155,3 +155,7 @@ alias nvimf='nvim $(fzf -m --preview="bat --color=always {}")'
 #     tmux new-session -d -s main
 #     tmux-resurrect-restore
 # fi
+#
+
+# Para mexer com ROMS
+export ROMS_ROOT_DIR='/home/daniel/LAMCE'
