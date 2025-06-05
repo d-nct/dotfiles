@@ -16,8 +16,11 @@ DOTFILES=(
     # GIT
     "$HOME/.gitconfig"
 
-		# VIM puro
+    # VIM puro
     "$HOME/.vimrc"
+    
+    # NerdFont
+    "$HOME/.fonts/FiraMonoNerdFontMono-Regular.otf"
 )
 
 # Lista de diretórios para backup
