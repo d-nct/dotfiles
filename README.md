@@ -27,31 +27,36 @@ Basta executar
 backup/
 ├── .bashrc             " Conifgurações do bash
 ├── .gitconfig          " Configurações do git
-├── init.vim
-├── nvim
-│   ├── init.lua
-│   ├── lazy-lock.json
-│   ├── lua
-│   ├── .luarc.json
-│   ├── nvim
-│   ├── README.md
-│   └── Session.vim
 ├── .tmux.conf          " Configurações básicas do TMUX
-├── tmux.service
-└── .vimrc              " Configutações básicas do VIM puro
+├── .tmux.tar.gz        " Diretório com plugins do TMUX
+├── .vimrc              " Arquivo de config básico para VIM puro
+├── FiraMonoNerdFontMono-Regular.otf   " Fonte com caracteres especiais
+├── init.vim            " Dispensa comentários
+├── nvim.tar.gz         " Diretório com plugins e configurações do NeoVIM
+└── tmux.service
 ```
 
 ---
 
-# Configurações a Serem Feitas Após Clonar o Repositório
+# Configurações Posteriores
+
 ## TMUX
 
 * Instalação: `sudo apt install tmux`
 
 Permanencia das sessões após desligar o PC:
+
 ```sh
 systemctl --user enable tmux
 systemctl --user start tmux
+```
+
+## NerdFont
+
+Para reconhecer a fonte, é necessário recarregar o cache do sistema operacional:
+
+```bash
+fc-cache -fv
 ```
 
 ---
